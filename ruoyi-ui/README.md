@@ -2,7 +2,7 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/hendatudou/LTT-server
+git clone https://github.com/hendatudou/LTT-server.git
 
 # 进入项目目录
 cd ruoyi-ui
