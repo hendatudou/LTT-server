@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 09/02/2024 14:46:38
+ Date: 09/02/2024 15:43:40
 */
 
 SET NAMES utf8mb4;
@@ -526,7 +526,7 @@ CREATE TABLE `sys_logininfor`  (
   PRIMARY KEY (`info_id`) USING BTREE,
   INDEX `idx_sys_logininfor_s`(`status`) USING BTREE,
   INDEX `idx_sys_logininfor_lt`(`login_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 140 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 141 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -571,6 +571,7 @@ INSERT INTO `sys_logininfor` VALUES (136, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (137, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-02-08 17:32:51');
 INSERT INTO `sys_logininfor` VALUES (138, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-02-09 10:58:05');
 INSERT INTO `sys_logininfor` VALUES (139, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-02-09 14:40:14');
+INSERT INTO `sys_logininfor` VALUES (140, 'admin', '127.0.0.1', '内网IP', 'Chrome 12', 'Windows 10', '0', '登录成功', '2024-02-09 15:17:11');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -620,7 +621,6 @@ INSERT INTO `sys_menu` VALUES (111, '数据监控', 2, 3, 'druid', 'monitor/drui
 INSERT INTO `sys_menu` VALUES (112, '服务监控', 2, 4, 'server', 'monitor/server/index', '', 1, 0, 'C', '0', '0', 'monitor:server:list', 'server', 'admin', '2023-12-29 11:26:43', '', NULL, '服务监控菜单');
 INSERT INTO `sys_menu` VALUES (113, '缓存监控', 2, 5, 'cache', 'monitor/cache/index', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis', 'admin', '2023-12-29 11:26:43', '', NULL, '缓存监控菜单');
 INSERT INTO `sys_menu` VALUES (114, '缓存列表', 2, 6, 'cacheList', 'monitor/cache/list', '', 1, 0, 'C', '0', '0', 'monitor:cache:list', 'redis-list', 'admin', '2023-12-29 11:26:43', '', NULL, '缓存列表菜单');
-INSERT INTO `sys_menu` VALUES (115, '表单构建', 3, 1, 'build', 'tool/build/index', '', 1, 0, 'C', '0', '0', 'tool:build:list', 'build', 'admin', '2023-12-29 11:26:43', '', NULL, '表单构建菜单');
 INSERT INTO `sys_menu` VALUES (116, '代码生成', 3, 2, 'gen', 'tool/gen/index', '', 1, 0, 'C', '0', '0', 'tool:gen:list', 'code', 'admin', '2023-12-29 11:26:43', '', NULL, '代码生成菜单');
 INSERT INTO `sys_menu` VALUES (117, '系统接口', 3, 3, 'swagger', 'tool/swagger/index', '', 1, 0, 'C', '0', '0', 'tool:swagger:list', 'swagger', 'admin', '2023-12-29 11:26:43', '', NULL, '系统接口菜单');
 INSERT INTO `sys_menu` VALUES (500, '操作日志', 108, 1, 'operlog', 'monitor/operlog/index', '', 1, 0, 'C', '0', '0', 'monitor:operlog:list', 'form', 'admin', '2023-12-29 11:26:43', '', NULL, '操作日志菜单');
@@ -737,7 +737,7 @@ CREATE TABLE `sys_oper_log`  (
   INDEX `idx_sys_oper_log_bt`(`business_type`) USING BTREE,
   INDEX `idx_sys_oper_log_s`(`status`) USING BTREE,
   INDEX `idx_sys_oper_log_ot`(`oper_time`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 141 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -780,6 +780,9 @@ INSERT INTO `sys_oper_log` VALUES (134, '角色管理', 1, 'com.ruoyi.web.contro
 INSERT INTO `sys_oper_log` VALUES (135, '部门管理', 2, 'com.ruoyi.web.controller.system.SysDeptController.edit()', 'PUT', 1, 'admin', '物流部', '/system/dept', '127.0.0.1', '内网IP', '{\"ancestors\":\"0,100,101\",\"children\":[],\"deptId\":103,\"deptName\":\"业务部\",\"email\":\"shengkaimeng@gmail.com\",\"leader\":\"孟圣凯\",\"orderNum\":1,\"params\":{},\"parentId\":101,\"parentName\":\"万象总公司\",\"phone\":\"15138797733\",\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-12-29 18:05:14', 21);
 INSERT INTO `sys_oper_log` VALUES (136, '部门管理', 2, 'com.ruoyi.web.controller.system.SysDeptController.edit()', 'PUT', 1, 'admin', '物流部', '/system/dept', '127.0.0.1', '内网IP', '{\"ancestors\":\"0,100,200\",\"children\":[],\"deptId\":201,\"deptName\":\"业务部\",\"orderNum\":1,\"params\":{},\"parentId\":200,\"parentName\":\"昆明公司\",\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2023-12-29 18:05:25', 23);
 INSERT INTO `sys_oper_log` VALUES (137, '参数管理', 2, 'com.ruoyi.web.controller.system.SysConfigController.edit()', 'PUT', 1, 'admin', '业务部', '/system/config', '127.0.0.1', '内网IP', '{\"configId\":5,\"configKey\":\"sys.account.registerUser\",\"configName\":\"账号自助-是否开启用户注册功能\",\"configType\":\"Y\",\"configValue\":\"true\",\"createBy\":\"admin\",\"createTime\":\"2023-12-29 11:26:43\",\"params\":{},\"remark\":\"是否开启注册用户功能（true开启，false关闭）\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-01-03 09:58:13', 19);
+INSERT INTO `sys_oper_log` VALUES (138, '菜单管理', 3, 'com.ruoyi.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', '业务部', '/system/menu/115', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"菜单已分配,不允许删除\",\"code\":601}', 0, NULL, '2024-02-09 15:39:37', 11);
+INSERT INTO `sys_oper_log` VALUES (139, '角色管理', 2, 'com.ruoyi.web.controller.system.SysRoleController.edit()', 'PUT', 1, 'admin', '业务部', '/system/role', '127.0.0.1', '内网IP', '{\"admin\":false,\"createTime\":\"2023-12-29 11:26:43\",\"dataScope\":\"2\",\"delFlag\":\"0\",\"deptCheckStrictly\":true,\"flag\":false,\"menuCheckStrictly\":true,\"menuIds\":[3,1,100,1000,1001,1002,1003,1004,1005,1006,101,1007,1008,1009,1010,1011,102,1012,1013,1014,1015,103,1016,1017,1018,1019,104,1020,1021,1022,1023,1024,105,1025,1026,1027,1028,1029,106,1030,1031,1032,1033,1034,107,1035,1036,1037,1038,108,500,1039,1040,1041,501,1042,1043,1044,1045,2,109,1046,1047,1048,110,1049,1050,1051,1052,1053,1054,111,112,113,114,116,1055,1056,1057,1058,1059,1060,117],\"params\":{},\"remark\":\"普通角色\",\"roleId\":2,\"roleKey\":\"common\",\"roleName\":\"普通角色\",\"roleSort\":2,\"status\":\"0\",\"updateBy\":\"admin\"}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-02-09 15:41:37', 44);
+INSERT INTO `sys_oper_log` VALUES (140, '菜单管理', 3, 'com.ruoyi.web.controller.system.SysMenuController.remove()', 'DELETE', 1, 'admin', '业务部', '/system/menu/115', '127.0.0.1', '内网IP', '{}', '{\"msg\":\"操作成功\",\"code\":200}', 0, NULL, '2024-02-09 15:41:48', 16);
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -833,7 +836,7 @@ CREATE TABLE `sys_role`  (
 -- Records of sys_role
 -- ----------------------------
 INSERT INTO `sys_role` VALUES (1, '超级管理员', 'admin', 1, '1', 1, 1, '0', '0', 'admin', '2023-12-29 11:26:43', '', NULL, '超级管理员');
-INSERT INTO `sys_role` VALUES (2, '普通角色', 'common', 2, '2', 1, 1, '0', '0', 'admin', '2023-12-29 11:26:43', 'admin', '2023-12-29 11:32:54', '普通角色');
+INSERT INTO `sys_role` VALUES (2, '普通角色', 'common', 2, '2', 1, 1, '0', '0', 'admin', '2023-12-29 11:26:43', 'admin', '2024-02-09 15:41:37', '普通角色');
 INSERT INTO `sys_role` VALUES (100, '货主', 'client', 3, '1', 1, 1, '0', '0', 'admin', '2023-12-29 18:03:17', 'admin', '2023-12-29 18:03:34', NULL);
 INSERT INTO `sys_role` VALUES (101, '司机', 'driver', 4, '1', 1, 1, '0', '0', 'admin', '2023-12-29 18:04:05', '', NULL, NULL);
 
@@ -885,7 +888,6 @@ INSERT INTO `sys_role_menu` VALUES (2, 111);
 INSERT INTO `sys_role_menu` VALUES (2, 112);
 INSERT INTO `sys_role_menu` VALUES (2, 113);
 INSERT INTO `sys_role_menu` VALUES (2, 114);
-INSERT INTO `sys_role_menu` VALUES (2, 115);
 INSERT INTO `sys_role_menu` VALUES (2, 116);
 INSERT INTO `sys_role_menu` VALUES (2, 117);
 INSERT INTO `sys_role_menu` VALUES (2, 500);
@@ -982,7 +984,7 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '孟', '00', 'shengkaimeng@gmail.com', '15138797733', '0', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-02-09 14:40:15', 'admin', '2023-12-29 11:26:43', '', '2024-02-09 14:40:14', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '孟', '00', 'shengkaimeng@gmail.com', '15138797733', '0', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2024-02-09 15:17:11', 'admin', '2023-12-29 11:26:43', '', '2024-02-09 15:17:11', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'kf', '客服1', '00', 'kf@qq.com', '15138711111', '1', '', '$2a$10$uPsIHLJ7KJwG.5lWFa.P0eRTlnVWUBp/PFEZBH8oQS1O04OZAKmH.', '0', '0', '127.0.0.1', '2023-12-29 17:43:13', 'admin', '2023-12-29 11:26:43', 'admin', '2023-12-29 17:43:13', '');
 INSERT INTO `sys_user` VALUES (3, NULL, '王五', '王五', '00', '', '', '0', '', '$2a$10$VcYm3VgHJwY3w2YXhMKhM.WqhCbcUutlJK2SBf.mrhlNxGYK5Wud2', '0', '0', '127.0.0.1', '2024-01-03 09:58:49', '', '2024-01-03 09:58:27', '', '2024-01-03 09:58:48', NULL);
 
