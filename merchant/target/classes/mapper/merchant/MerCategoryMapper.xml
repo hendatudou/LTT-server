@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.merchant.mapper.MerCategoryMapper">
+    
+    <resultMap type="MerCategory" id="MerCategoryResult">
+        <result property="merCategoryId"    column="mer_category_id"    />
+        <result property="categoryName"    column="category_name"    />
+        <result property="categoryDescription"    column="category_description"    />
+        <result property="categoryCover"    column="category_cover"    />
+    </resultMap>
+
+    <sql id="selectMerCategoryVo">
+        select mer_category_id, category_name, category_description, category_cover from mer_category
+    </sql>
+
+    <select id="selectMerCategoryList" parameterType="MerCategory" resultMap="MerCategoryResult">
+        <include refid="selectMerCategoryVo"/>
+        <where>  
+            <if test="merCategoryId != null "> and mer_category_id = #{merCategoryId}</if>
+            <if test="categoryName != null  and categoryName != ''"> and category_name like concat('%', #{categoryName}, '%')</if>
+            <if test="categoryDescription != null  and categoryDescription != ''"> and category_description like concat('%', #{categoryDescription}, '%')</if>
+        </where>
+    </select>
+    
+    <select id="selectMerCategoryByMerCategoryId" parameterType="Integer" resultMap="MerCategoryResult">
+        <include refid="selectMerCategoryVo"/>
+        where mer_category_id = #{merCategoryId}
+    </select>
+        
+    <insert id="insertMerCategory" parameterType="MerCategory" useGeneratedKeys="true" keyProperty="merCategoryId">
+        insert into mer_category
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="categoryName != null">category_name,</if>
+            <if test="categoryDescription != null">category_description,</if>
+            <if test="categoryCover != null">category_cover,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="categoryName != null">#{categoryName},</if>
+            <if test="categoryDescription != null">#{categoryDescription},</if>
+            <if test="categoryCover != null">#{categoryCover},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMerCategory" parameterType="MerCategory">
+        update mer_category
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="categoryName != null">category_name = #{categoryName},</if>
+            <if test="categoryDescription != null">category_description = #{categoryDescription},</if>
+            <if test="categoryCover != null">category_cover = #{categoryCover},</if>
+        </trim>
+        where mer_category_id = #{merCategoryId}
+    </update>
+
+    <delete id="deleteMerCategoryByMerCategoryId" parameterType="Integer">
+        delete from mer_category where mer_category_id = #{merCategoryId}
+    </delete>
+
+    <delete id="deleteMerCategoryByMerCategoryIds" parameterType="String">
+        delete from mer_category where mer_category_id in 
+        <foreach item="merCategoryId" collection="array" open="(" separator="," close=")">
+            #{merCategoryId}
+        </foreach>
+    </delete>
+</mapper>

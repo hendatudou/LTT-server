@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb2a7930-0c44-479a-b6d7-a4bd590df18e" name="Default Changelist" comment="更新数据库">
-      <change afterPath="$PROJECT_DIR$/merchant/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/domain/MerCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/domain/MerInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/mapper/MerCategoryMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/mapper/MerInfoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/service/IMerCategoryService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/service/IMerInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/service/impl/MerCategoryServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/java/com/ruoyi/merchant/service/impl/MerInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/resources/mapper/merchant/MerCategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/merchant/src/main/resources/mapper/merchant/MerInfoMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/merchant/MerCategoryController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/merchant/MerInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-admin/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/generator.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/src/main/resources/generator.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ruoyi-generator/target/classes/generator.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ruoyi-generator/target/classes/generator.yml" afterDir="false" />
-    </list>
+    <list default="true" id="cb2a7930-0c44-479a-b6d7-a4bd590df18e" name="Default Changelist" comment="更新数据库" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -153,7 +132,7 @@
       <workItem from="1708445860468" duration="241000" />
       <workItem from="1708527893123" duration="779000" />
       <workItem from="1708528941094" duration="2099000" />
-      <workItem from="1708607978945" duration="5174000" />
+      <workItem from="1708607978945" duration="5838000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1703821109997</created>
@@ -199,7 +178,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708957761800</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="更新数据库">
+      <option name="closed" value="true" />
+      <created>1709300364380</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709300364380</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
