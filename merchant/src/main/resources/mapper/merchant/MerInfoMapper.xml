@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.merchant.mapper.MerInfoMapper">
+    
+    <resultMap type="MerInfo" id="MerInfoResult">
+        <result property="merchantId"    column="merchant_id"    />
+        <result property="merchantCategoryId"    column="merchant_category_id"    />
+        <result property="merchantName"    column="merchant_name"    />
+        <result property="merchantLocation"    column="merchant_location"    />
+        <result property="merchantQualification"    column="merchant_qualification"    />
+        <result property="merchantOpeningHours"    column="merchant_opening_hours"    />
+        <result property="merchantCertificationStatus"    column="merchant_certification_status"    />
+        <result property="merchantOpeningStatus"    column="merchant_opening_status"    />
+        <result property="merchantPhone"    column="merchant_phone"    />
+        <result property="merchantImages"    column="merchant_images"    />
+        <result property="merchantCommanderId"    column="merchant_commander_id"    />
+    </resultMap>
+
+    <sql id="selectMerInfoVo">
+        select merchant_id, merchant_category_id, merchant_name, merchant_location, merchant_qualification, merchant_opening_hours, merchant_certification_status, merchant_opening_status, merchant_phone, merchant_images, merchant_commander_id from mer_info
+    </sql>
+
+    <select id="selectMerInfoList" parameterType="MerInfo" resultMap="MerInfoResult">
+        <include refid="selectMerInfoVo"/>
+        <where>  
+            <if test="merchantId != null "> and merchant_id = #{merchantId}</if>
+            <if test="merchantCategoryId != null "> and merchant_category_id = #{merchantCategoryId}</if>
+            <if test="merchantName != null  and merchantName != ''"> and merchant_name like concat('%', #{merchantName}, '%')</if>
+            <if test="merchantCertificationStatus != null "> and merchant_certification_status = #{merchantCertificationStatus}</if>
+            <if test="merchantOpeningStatus != null "> and merchant_opening_status = #{merchantOpeningStatus}</if>
+            <if test="merchantPhone != null  and merchantPhone != ''"> and merchant_phone = #{merchantPhone}</if>
+            <if test="merchantCommanderId != null "> and merchant_commander_id = #{merchantCommanderId}</if>
+        </where>
+    </select>
+    
+    <select id="selectMerInfoByMerchantId" parameterType="Long" resultMap="MerInfoResult">
+        <include refid="selectMerInfoVo"/>
+        where merchant_id = #{merchantId}
+    </select>
+        
+    <insert id="insertMerInfo" parameterType="MerInfo" useGeneratedKeys="true" keyProperty="merchantId">
+        insert into mer_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="merchantCategoryId != null">merchant_category_id,</if>
+            <if test="merchantName != null">merchant_name,</if>
+            <if test="merchantLocation != null">merchant_location,</if>
+            <if test="merchantQualification != null">merchant_qualification,</if>
+            <if test="merchantOpeningHours != null">merchant_opening_hours,</if>
+            <if test="merchantCertificationStatus != null">merchant_certification_status,</if>
+            <if test="merchantOpeningStatus != null">merchant_opening_status,</if>
+            <if test="merchantPhone != null">merchant_phone,</if>
+            <if test="merchantImages != null">merchant_images,</if>
+            <if test="merchantCommanderId != null">merchant_commander_id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="merchantCategoryId != null">#{merchantCategoryId},</if>
+            <if test="merchantName != null">#{merchantName},</if>
+            <if test="merchantLocation != null">#{merchantLocation},</if>
+            <if test="merchantQualification != null">#{merchantQualification},</if>
+            <if test="merchantOpeningHours != null">#{merchantOpeningHours},</if>
+            <if test="merchantCertificationStatus != null">#{merchantCertificationStatus},</if>
+            <if test="merchantOpeningStatus != null">#{merchantOpeningStatus},</if>
+            <if test="merchantPhone != null">#{merchantPhone},</if>
+            <if test="merchantImages != null">#{merchantImages},</if>
+            <if test="merchantCommanderId != null">#{merchantCommanderId},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMerInfo" parameterType="MerInfo">
+        update mer_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="merchantCategoryId != null">merchant_category_id = #{merchantCategoryId},</if>
+            <if test="merchantName != null">merchant_name = #{merchantName},</if>
+            <if test="merchantLocation != null">merchant_location = #{merchantLocation},</if>
+            <if test="merchantQualification != null">merchant_qualification = #{merchantQualification},</if>
+            <if test="merchantOpeningHours != null">merchant_opening_hours = #{merchantOpeningHours},</if>
+            <if test="merchantCertificationStatus != null">merchant_certification_status = #{merchantCertificationStatus},</if>
+            <if test="merchantOpeningStatus != null">merchant_opening_status = #{merchantOpeningStatus},</if>
+            <if test="merchantPhone != null">merchant_phone = #{merchantPhone},</if>
+            <if test="merchantImages != null">merchant_images = #{merchantImages},</if>
+            <if test="merchantCommanderId != null">merchant_commander_id = #{merchantCommanderId},</if>
+        </trim>
+        where merchant_id = #{merchantId}
+    </update>
+
+    <delete id="deleteMerInfoByMerchantId" parameterType="Long">
+        delete from mer_info where merchant_id = #{merchantId}
+    </delete>
+
+    <delete id="deleteMerInfoByMerchantIds" parameterType="String">
+        delete from mer_info where merchant_id in 
+        <foreach item="merchantId" collection="array" open="(" separator="," close=")">
+            #{merchantId}
+        </foreach>
+    </delete>
+</mapper>
